@@ -1,0 +1,46 @@
+import java.util.Scanner;
+public class Shampoospender{
+    private int fuellmenge;
+    private int kapazitaet;
+    private int shampoo;
+    private int gespendetesShampoo;
+    public Shampoospender(int newfuellmenge, int newkapazitaet){
+        fuellmenge = newfuellmenge;
+        kapazitaet = newkapazitaet;
+    }
+    public void gibFuellmenge(){
+        System.out.println(fuellmenge + "ml verbleibend"); 
+    }
+    public void spendeShampoo(){
+        if (fuellmenge  >=50){
+            System.out.println("50ml Shampoo");
+            fuellmenge  -= 50;
+            gespendetesShampoo += 50;
+        }
+        else if (fuellmenge < 50 && fuellmenge > 0){
+            System.out.println(fuellmenge + "ml Shampoo");
+            fuellmenge -= fuellmenge;
+            gespendetesShampoo += fuellmenge;
+        }
+        else{
+            System.out.println("Fehler: Der Spender ist leer und muss nachgefüllt werden.");
+        }
+    }
+    public void fuelleNach(){
+        Scanner input = new Scanner(System.in);
+        shampoo = input.nextInt();
+        if (shampoo <=0){
+            System.out.println("Fehler: Das ist keine Gültige Menge.");
+        }
+        else if (shampoo + fuellmenge <= kapazitaet){
+            fuellmenge += shampoo;
+            System.out.println(shampoo + "ml nachgefüllt \nAktuelle Füllmenge: " + fuellmenge + "ml");
+        }
+        else if (shampoo + fuellmenge > kapazitaet){
+            System.out.println("Fehler: Soviel Shampoo passt nicht in den Spender.");
+        }
+    }
+    public void gibgespendetesShampoo(){
+        System.out.println("Der Automat hat insgesamt schon "+gespendetesShampoo+"ml Shampoo gespendet.");
+    }
+}
