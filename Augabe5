@@ -1,0 +1,15 @@
+public class Aufgabe5Besprechung{
+    private String name;
+    private int note;
+    public void kommentiereNote(String name, int note){
+        if (note == 1){
+            System.out.println("Das war spitze, " + name + "!");
+        }
+        else if (note == 2){
+            System.out.println("Das war gut, " + name + "!");
+        }
+        else if (note == 3){
+            System.out.println("Das war in Ordnung, " + name + ".");
+        }
+    }
+}
